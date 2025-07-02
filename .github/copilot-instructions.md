@@ -211,7 +211,6 @@ export class GameRepository implements GameRepositoryInterface {
     }
   }
   
-  // Autres méthodes...
 }
 ```
 

@@ -4,5 +4,3 @@ export interface Routes {
   controller: OpenAPIHono
   initRoutes: () => void
 }
-
-

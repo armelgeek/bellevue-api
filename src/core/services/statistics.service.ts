@@ -84,7 +84,6 @@ export class StatisticsService {
    * Calculer les statistiques globales du système
    */
   getGlobalStats(period: 'day' | 'week' | 'month'): GlobalStats {
-
     const { start, end } = this.calculatePeriodDates(period)
 
     const mockStats: GlobalStats = {

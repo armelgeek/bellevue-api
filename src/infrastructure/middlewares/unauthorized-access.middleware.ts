@@ -21,7 +21,3 @@ const sessionValidator = (c: Context, next: Next) => {
 }
 
 export default sessionValidator
-
-
-
-

@@ -154,3 +154,26 @@ export const payments = pgTable('payments', {
     .defaultNow()
     .$onUpdateFn(() => new Date())
 })
+
+export const currencies = pgTable('currencies', {
+  id: text('id').primaryKey(),
+  code: text('code').notNull().unique(),
+  symbol: text('symbol').notNull(),
+  name: text('name').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at')
+    .notNull()
+    .defaultNow()
+    .$onUpdateFn(() => new Date())
+})
+
+export const roomTypes = pgTable('room_types', {
+  id: text('id').primaryKey(),
+  name: text('name').notNull().unique(),
+  description: text('description'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at')
+    .notNull()
+    .defaultNow()
+    .$onUpdateFn(() => new Date())
+})

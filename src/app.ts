@@ -48,8 +48,9 @@ export class App {
     this.app.use(
       '*',
       cors({
-        origin:
-          Bun.env.NODE_ENV === 'production'
+        origin: Bun.env.NODE_ENV === 'production' ? 'https://boiler-hono.ac' : 'http://localhost:3000',
+        allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+        allowHeaders: ['Content-Type'],
         credentials: true,
         maxAge: 86400
       })
@@ -72,8 +73,9 @@ export class App {
           version: '1.0.0',
           title: 'Boiler Hono API',
           description: `# Introduction 
-        \nHono API . \n`
+        \nTrevia API . \n`
         },
+        servers: [{ url: `${protocol}//${hostname}${port ? `:${port}` : ''}`, description: 'Current environment' }]
       }
     })
 
@@ -93,6 +95,7 @@ export class App {
           robots: 'index, follow',
           description: 'Boiler Hono API is ....'
         },
+        url: Bun.env.NODE_ENV === 'production' ? 'https://boiler-hono.ac/swagger' : 'http://localhost:3000/swagger'
       })
     )
   }

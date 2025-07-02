@@ -22,7 +22,7 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "drizzle/seed.ts"],
   "exclude": ["node_modules"],
   "tsc-alias": { "resolveFullPaths": true }
 }

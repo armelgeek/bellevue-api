@@ -68,4 +68,3 @@ export abstract class BaseRepository<T extends BaseTable> implements BaseReposit
     }
   }
 }
-

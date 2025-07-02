@@ -6,4 +6,3 @@ export interface BaseTable extends Table<TableConfig> {
 
 export type BaseSelectModel<T extends BaseTable> = InferSelectModel<T>
 export type BaseInsertModel<T extends BaseTable> = InferInsertModel<T>
-

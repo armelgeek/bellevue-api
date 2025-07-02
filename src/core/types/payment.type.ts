@@ -1,4 +1,3 @@
-
 export interface PaymentBase {
   id: string
   reservationId: string

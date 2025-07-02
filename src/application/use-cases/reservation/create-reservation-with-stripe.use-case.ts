@@ -21,7 +21,6 @@ export class CreateReservationWithStripeUseCase {
     }
 
     const createdReservation = await this.reservationRepository.create(reservation)
-    console.log('createdReservation', createdReservation)
     const checkoutSession = await this.stripeService.createCheckoutSession({
       amount: payment.amount,
       currency: payment.currency,

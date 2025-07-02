@@ -20,7 +20,6 @@ export interface ExtensionResult {
 }
 
 export class ReservationExtensionService {
-
   constructor(private readonly reservationRepository: ReservationRepository) {}
 
   /**
@@ -43,7 +42,7 @@ export class ReservationExtensionService {
     const isAvailable = await this.reservationRepository.checkResourceAvailability(
       reservation.resourceId,
       currentEndDate,
-      newEndDate,
+      newEndDate
     )
 
     let conflictingReservations: string[] = []
@@ -56,7 +55,7 @@ export class ReservationExtensionService {
       conflictingReservations = conflicts.map((r) => r.id)
     }
 
-    const additionalCost = isAvailable ? Math.ceil(extendedDurationHours * this.hourlyRate) : 0
+    const additionalCost = isAvailable ? Math.ceil(extendedDurationHours) : 0
 
     return {
       canExtend: isAvailable,
@@ -116,17 +115,20 @@ export class ReservationExtensionService {
    * Calculer le prix par heure en fonction de différents facteurs
    */
   private calculateHourlyRate(reservation: ReservationBase, extensionDate: Date): number {
-    let rate = this.hourlyRate
+    const rate = 0
 
     const hoursUntilExtension = (extensionDate.getTime() - Date.now()) / (1000 * 60 * 60)
     if (hoursUntilExtension < 24) {
+      return rate * 1.5 // Augmenter le tarif de 50% si l'extension est demandée dans moins de 24 heures
     }
 
     if (extensionDate.getHours() >= 18) {
+      return rate * 1.2 // Augmenter le tarif de 20% si l'extension est demandée après 18h
     }
 
     const dayOfWeek = extensionDate.getDay()
     if (dayOfWeek === 0 || dayOfWeek === 6) {
+      return rate * 1.3 // Augmenter le tarif de 30% pour les week-ends
     }
 
     return Math.ceil(rate)

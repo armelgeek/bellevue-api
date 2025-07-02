@@ -42,7 +42,6 @@ export class RefundService {
     }
 
     try {
-
       refund.status = 'completed'
       refund.processedAt = new Date()
       refund.stripeRefundId = `re_${Math.random().toString(36).slice(2, 11)}`

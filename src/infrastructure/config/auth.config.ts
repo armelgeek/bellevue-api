@@ -1,4 +1,3 @@
-import { env } from 'node:process'
 import { betterAuth, type User } from 'better-auth'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import { admin as adminPlugin, emailOTP, openAPI } from 'better-auth/plugins'
@@ -76,7 +75,7 @@ export const auth = betterAuth({
         })
       },
       sendOnSignUp: true,
-      autoSignInAfterVerification: true,
+      autoSignInAfterVerification: true
     },
     sendResetPassword: async ({ user, token }) => {
       await sendResetPasswordEmail({
@@ -96,6 +95,3 @@ router.on(['POST', 'GET'], '/auth/*', (c) => {
 })
 
 export default router
-
-
-

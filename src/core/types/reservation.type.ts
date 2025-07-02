@@ -1,4 +1,3 @@
-
 export interface ReservationBase {
   id: string
   userId: string

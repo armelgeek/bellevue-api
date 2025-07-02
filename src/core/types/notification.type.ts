@@ -1,4 +1,3 @@
-
 export interface NotificationBase {
   id: string
   userId: string

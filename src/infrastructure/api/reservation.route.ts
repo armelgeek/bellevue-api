@@ -1010,7 +1010,7 @@ export class ReservationRoutes implements Routes {
         const isAvailable = await reservationContainer.reservationRepository.checkResourceAvailability(
           reservation.resourceId,
           newStartDate,
-          newEndDate,
+          newEndDate
         )
 
         if (!isAvailable) {
@@ -1161,7 +1161,6 @@ export class ReservationRoutes implements Routes {
         })
 
         const occupancyRate = totalHours > 0 ? bookedHours / totalHours : 0
-
 
         return c.json({
           resourceId,

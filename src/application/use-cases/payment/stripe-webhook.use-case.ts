@@ -5,7 +5,10 @@ import type { StripePaymentService } from '../../../core/services/stripe-payment
 import type Stripe from 'stripe'
 
 export class StripeWebhookUseCase {
-  constructor(private readonly stripeService: StripePaymentService) {}
+  private readonly stripeService: StripePaymentService
+  constructor(stripeService: StripePaymentService) {
+    this.stripeService = stripeService
+  }
 
   async execute(body: string, signature: string) {
     const event = await this.stripeService.verifyWebhookSignature(body, signature)

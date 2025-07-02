@@ -50,6 +50,3 @@ export interface UserRole {
   createdAt: Date
   updatedAt: Date
 }
-
-
-

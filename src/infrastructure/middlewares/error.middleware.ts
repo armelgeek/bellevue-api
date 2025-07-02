@@ -71,4 +71,3 @@ export function errorMiddleware(err: Error) {
 }
 
 export default errorHandler
-

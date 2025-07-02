@@ -8,4 +8,3 @@ const addStripe = (c: Context, next: Next) => {
 }
 
 export default addStripe
-
