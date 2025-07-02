@@ -1,0 +1,6 @@
+node_modules/
+bun.lockb
+yarn-error.log
+.env
+dist/
+uploads/
